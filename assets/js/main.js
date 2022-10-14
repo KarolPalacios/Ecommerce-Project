@@ -90,10 +90,10 @@ const showProducts = () => {
                 <img src="${producto.image}" alt="" class="product-img">
                 
                 <p class="product-price">$${producto.price}</p>
-                <p class="product-stock"> Stock: ${producto.quantity}</p>
+                <p class="product-stock"> Stock: <span class="product-stock-value">${producto.quantity}</span></p>
                 <p class="product-name">${producto.name}</p>
                 
-                <i class='bx bx-plus'></i>
+                <i class='bx bx-plus circle'></i>
             </div>
         </div>
         `
@@ -112,13 +112,12 @@ const showProducts = () => {
     
     function addToCartClicked(e) {
         const button = e.target;
-        const item = button.closest(".item");
-        console.log(item);
+        const item = button.closest(".item"); 
 
 
         const productName = item.querySelector(".product-name").textContent
         const price = item.querySelector(".product-price").textContent
-        const productStock = item.querySelector(".product-stock").textContent
+        const productStock = item.querySelector(".product-stock-value").textContent
         const productImg = item.querySelector(".product-img").src; 
 
 
@@ -137,14 +136,44 @@ const showProducts = () => {
             <img src="${productImg}" alt="" class="img-prod">
             <div class="info-prod">
                 <h3>${productName}</h3>
-                <p class="stock-product-value">${productStock} <span class="product-price-value"> ${price}</span></p>
+                <p class="stock-product">Stock: <span class="stock-product-value">${productStock}</span> <span class="product-price-value"> ${price}</span></p>
                 <p class="subtotal-product">Subtotal: ${price}</p>
+                <div class="amount-product">
+                    <i class='bx bx-minus bx-border'></i>
+                    <span class="amount">1</span>
+                    <i class='bx bx-plus bx-border'></i>
+                    <i class='bx bx-trash-alt'></i>
+                </div>
             </div>
         </div>
         `;
         ShoppingCart.innerHTML = cartContent
         shoppingCartContainer.append(ShoppingCart)
+
+        updateShoppingCartTotal()
     } 
+
+    function updateShoppingCartTotal(){
+        let total = 0
+
+        const shoppingCartTotal = document.querySelector('.total')
+        
+        const shoppingCartItems = document.querySelectorAll('.products-selected')
+        
+        shoppingCartItems.forEach(shoppingCartItem => {
+            const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.product-price-value')
+            const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''))
+            
+            const shoppingCartItemStockElement = shoppingCartItem.querySelector('.stock-product-value')
+            const shoppingCartItemStock = Number(shoppingCartItemStockElement.textContent)
+            
+            /* total = total + shoppingCartItemPrice * shoppingCartItemStock */
+            console.log(shoppingCartItemStock);
+            
+        }) 
+
+
+    }
 }
 
     
