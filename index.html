@@ -26,67 +26,144 @@
         </svg>
     </section>
 
-    <nav>
-        <section class="nav-initial">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="nav--logo">
-                <title>Academlo Logo</title>
-                <g>
+    <header class="header">
+        <nav>
+            <section class="nav-initial">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="nav--logo">
+                    <title>Academlo Logo</title>
                     <g>
-                        <path
-                        d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                    </path>
-                </g>
-            </g>
-        </svg>
+                        <g>
+                            <path
+                                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
 
-        <span class="logo-text">STORE</span>
+                <span class="logo-text">STORE</span>
 
-            <ul class="nav-sections">
-                <li class="nav-item">
-                    <a href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#">Products</a>
-                </li>
-            </ul>
+                <ul class="nav-sections">
+                    <li class="nav-item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Products</a>
+                    </li>
+                </ul>
 
-    </section>
+            </section>
 
-        <section class="btns">
-            <i class='bx bx-moon bx-md' id="theme-btn"></i>
-            <i class='bx bx-shopping-bag bx-md'></i>
-            <span id="cart-counter" class="counter">0</span>
-            <i class='bx bx-category bx-md' id="category-btn"></i>
-        </section>
+            <section class="btns">
+                <i class='bx bx-moon bx-md' id="theme-btn"></i>
+                <div id="cart-shop" class="nav-cart">
+                    <i class='bx bx-shopping-bag bx-md'></i>
+                    <span id="cart-counter" class="counter">0</span>
+                </div>
+                <div id="menu-category" class="nav-menu">
+                    <i class='bx bx-category bx-md' id="category-btn"></i>
+                </div>
+            </section>
+        </nav>
 
-    </nav>
+        <div class="cart--container hide" id="cart-container">
+            <div class="cart" id="cart">
+                <div class="close--cart">
+                    <i class='bx bx-x' id="close-cart"></i>
+                </div>
+                <div class="products-selected">
 
-
-    <header>
-
-        <img src="./assets/img/home.png" alt="" class="header-img">
-
-        <h1>
-            New Sweatshirt
-            COLLECTIONS 2022
-        </h1>
-        <p>lasted arrival of the new Hanes Midweight Crewneck swweatshirt imported from the 2022 series, with a modern design.</p>
-
-        <span class="price">$14.00</span>
-
-        <div class="botones">
-            <button class="boton">Discover</button>
-            <button class="add-btn">ADD TO CART</button>
+                </div>
+            </div>
         </div>
+
+        <div class="menu--container hide" id="menu-container">
+            <div class="menu" id="menu">
+                <div class="close--menu">
+                    <i class='bx bx-x' id="close-menu"></i>
+                </div>
+                <div id="text">
+                    <p>HOME</p>
+                    <P>PRODUCTS</P>
+                </div>
+            </div>
+        </div>
+        <section class="section-header">
+            <img src="./assets/img/home.png" alt="" class="header-img">
+            <section class="header-text">
+                <h1>
+                    New Sweatshirt
+                    COLLECTIONS 2022
+                </h1>
+                <p>lasted arrival of the new Hanes Midweight Crewneck swweatshirt imported from the 2022 series, with a modern design.</p>
+                
+                <span class="price">$14.00</span>
+                
+                <div class="botones">
+                    <button class="boton">Discover</button>
+                    <button class="add-btn">ADD TO CART</button>
+                </div>
+            </section>
+        </section>
     </header>
     
     <main>
-        <section id="products-list">
+        <section class="products-filter">
+            <article class="filter">
+                <p>Show All</p>
+                <h5>show all products</h5>
+            </article>
+            <article class="filter">
+                <p>Hoodies</p>
+                <h5>3 products</h5>
+            </article>
+            <article class="filter">
+                <p>Shirts</p>
+                <h5>4 products</h5>
+            </article>
+            <article class="filter no-border">
+                <p>Sweatshirts</p>
+                <h5>4 products</h5>
+            </article>
+        </section>
+
+        <section class="products" id="products">
         </section>
     </main>
 
+    <footer class="footer-section">
+        <article class="footer-content">
+            <section class="info">
+                <h2>Our information</h2>
+                <p>Toluca - México</p>
+            </section>
+            <section class="info">
+                <h2>About Us</h2>
+                <p>Support Center</p>
+                <p>Customer Support</p>
+                <p>About Us</p>
+                <p>Copy Right</p>
+            </section>
+            <section class="info">
+                <h2>Product</h2>
+                <p>Hoodies</p>
+                <p>Shirts</p>
+                <p>Sweatshirts</p>
+            </section>
+            <section class="info">
+                <h2>Social</h2>
+                <div class="redes">
+                    <i class='bx bxl-facebook bx-sm'></i>
+                    <i class='bx bxl-twitter bx-sm'></i>
+                    <i class='bx bxl-instagram bx-sm'></i>
+                </div>
+            </section>
+        </article>
+    </footer>
 
 
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
+
+
+
