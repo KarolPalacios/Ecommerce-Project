@@ -195,7 +195,7 @@ nav{
 
 .info-prod{
     line-height: 2rem;
-    
+
 }
 
 .info-prod h3{
@@ -213,6 +213,17 @@ nav{
 
 .subtotal-product{
     color: var(--first-color);
+}
+
+/*--- TOTAL ---*/
+
+.total-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+.check-btn{
+    float: right;
 }
 
 .menu--container{
@@ -259,15 +270,6 @@ nav{
 }
 
 /*---- header ----*/
-/*
-.header{
-    background-image: url('../img/Rectangle 33.svg');
-    background-color: var(--first-color);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top 0 right -150px;
-}
-*/
 
 .section-header{
     display: flex;
@@ -277,8 +279,9 @@ nav{
 .header-img{
     width: 15rem;
     background-color: var(--first-color);
-    /* position: relative; */
-    /* right: -12rem; */
+    margin-left: auto;
+    display: block;
+    margin-bottom: 3rem;
 }
 
 .header-text{
