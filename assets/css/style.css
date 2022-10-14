@@ -242,6 +242,7 @@ nav{
     margin-top: 2rem;
     color: var(--text-color);
     border: none;
+    background-color: var( --button-color-alt);
 }
 
 
@@ -537,6 +538,7 @@ nav{
 
     .cart{
         max-width: 400px;
+        box-shadow: none;
     }
 
     .cart--container{

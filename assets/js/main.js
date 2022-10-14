@@ -113,6 +113,7 @@ const showProducts = () => {
     function addToCartClicked(e) {
         const button = e.target;
         const item = button.closest(".item"); 
+        console.log(item);
 
 
         const productName = item.querySelector(".product-name").textContent
@@ -164,11 +165,12 @@ const showProducts = () => {
             const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.product-price-value')
             const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''))
             
-            const shoppingCartItemStockElement = shoppingCartItem.querySelector('.stock-product-value')
+            const shoppingCartItemStockElement = shoppingCartItem.querySelector('.amount')
             const shoppingCartItemStock = Number(shoppingCartItemStockElement.textContent)
             
-            /* total = total + shoppingCartItemPrice * shoppingCartItemStock */
-            console.log(shoppingCartItemStock);
+            total += shoppingCartItemPrice * shoppingCartItemStock 
+
+            shoppingCartTotal.innerHTML = `$${total}`
             
         }) 
 
