@@ -126,6 +126,7 @@ const showProducts = () => {
 
 
     const shoppingCartContainer = document.querySelector(".products-selected")
+    
     function addItemToShoppingCart(productName, productStock, price, productImg){
         const shoppingCart = document.createElement('div')
 
@@ -150,6 +151,8 @@ const showProducts = () => {
         shoppingCart.innerHTML = cartContent
         shoppingCartContainer.append(shoppingCart)
 
+        const deleteItem = document.querySelector('.bx-trash-alt')
+        deleteItem.addEventListener('click', removeShoppingCartItem)
 
         updateShoppingCartTotal()
     } 
@@ -162,7 +165,7 @@ const showProducts = () => {
         const shoppingCartItems = document.querySelectorAll('.products-selected')
         
         shoppingCartItems.forEach(shoppingCartItem => {
-            const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.subtotal-product-value')
+            const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.product-price-value')
             const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''))
             
             const shoppingCartItemStockElement = shoppingCartItem.querySelector('.amount')
@@ -173,6 +176,16 @@ const showProducts = () => {
         }) 
         shoppingCartTotal.innerHTML = `$${total.toFixed(2)}`
     }
+
+
+    function removeShoppingCartItem(e){
+        const buttonClicked = e.target
+        buttonClicked.closest('.product-seleccion')
+        console.log(buttonClicked);
+    }
+
+
+
 }
 
     
