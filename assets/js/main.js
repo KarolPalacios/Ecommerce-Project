@@ -89,7 +89,7 @@ const showProducts = () => {
             <div class="product-card" id="${producto.id}">
                 <img src="${producto.image}" alt="" class="product-img">
                 
-                <p class="product-price">$${producto.price}</p>
+                <p class="product-price">$${producto.price.toFixed(2)}</p>
                 <p class="product-stock"> Stock: <span class="product-stock-value">${producto.quantity}</span></p>
                 <p class="product-name">${producto.name}</p>
                 
@@ -113,8 +113,7 @@ const showProducts = () => {
     function addToCartClicked(e) {
         const button = e.target;
         const item = button.closest(".item"); 
-        console.log(item);
-
+        
 
         const productName = item.querySelector(".product-name").textContent
         const price = item.querySelector(".product-price").textContent
@@ -128,7 +127,7 @@ const showProducts = () => {
 
     const shoppingCartContainer = document.querySelector(".products-selected")
     function addItemToShoppingCart(productName, productStock, price, productImg){
-        const ShoppingCart = document.createElement('div')
+        const shoppingCart = document.createElement('div')
 
         let cartContent = ``
         
@@ -138,18 +137,19 @@ const showProducts = () => {
             <div class="info-prod">
                 <h3>${productName}</h3>
                 <p class="stock-product">Stock: <span class="stock-product-value">${productStock}</span> <span class="product-price-value"> ${price}</span></p>
-                <p class="subtotal-product">Subtotal: ${price}</p>
+                <p class="subtotal-product">Subtotal: <span class="subtotal-product-value">${price}</span></p>
                 <div class="amount-product">
                     <i class='bx bx-minus bx-border'></i>
-                    <span class="amount">1</span>
+                    <input class="amount" type="number" value="1">
                     <i class='bx bx-plus bx-border'></i>
                     <i class='bx bx-trash-alt'></i>
                 </div>
             </div>
         </div>
         `;
-        ShoppingCart.innerHTML = cartContent
-        shoppingCartContainer.append(ShoppingCart)
+        shoppingCart.innerHTML = cartContent
+        shoppingCartContainer.append(shoppingCart)
+
 
         updateShoppingCartTotal()
     } 
@@ -162,19 +162,16 @@ const showProducts = () => {
         const shoppingCartItems = document.querySelectorAll('.products-selected')
         
         shoppingCartItems.forEach(shoppingCartItem => {
-            const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.product-price-value')
+            const shoppingCartItemPriceElement = shoppingCartItem.querySelector('.subtotal-product-value')
             const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''))
             
             const shoppingCartItemStockElement = shoppingCartItem.querySelector('.amount')
-            const shoppingCartItemStock = Number(shoppingCartItemStockElement.textContent)
-            
-            total += shoppingCartItemPrice * shoppingCartItemStock 
+            const shoppingCartItemStock = Number(shoppingCartItemStockElement.value)
 
-            shoppingCartTotal.innerHTML = `$${total}`
-            
+            total = total + (shoppingCartItemPrice*shoppingCartItemStock)
+            /* console.log(total) */ 
         }) 
-
-
+        shoppingCartTotal.innerHTML = `$${total.toFixed(2)}`
     }
 }
 

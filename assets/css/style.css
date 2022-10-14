@@ -223,6 +223,11 @@ nav{
     color: var(--title-color);
 }
 
+.amount{
+    width: 1rem;
+    border: 0;
+}
+
 .bx-trash-alt{
     color: var(--first-color);
 }
