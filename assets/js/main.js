@@ -89,7 +89,8 @@ const showProducts = () => {
             <div class="product-card" id="${producto.id}">
                 <img src="${producto.image}" alt="" class="product-img">
                 
-                <p class="product-price">$${producto.price} <span class="product-stock">Stock: ${producto.quantity}</span></p>
+                <p class="product-price">$${producto.price}</p>
+                <p class="product-stock"> Stock: ${producto.quantity}</p>
                 <p class="product-name">${producto.name}</p>
                 
                 <i class='bx bx-plus'></i>
@@ -117,15 +118,16 @@ const showProducts = () => {
 
         const productName = item.querySelector(".product-name").textContent
         const price = item.querySelector(".product-price").textContent
+        const productStock = item.querySelector(".product-stock").textContent
         const productImg = item.querySelector(".product-img").src; 
 
 
-        addItemToShoppingCart(productName, price, productImg) 
+        addItemToShoppingCart(productName, productStock, price, productImg) 
     }
 
 
     const shoppingCartContainer = document.querySelector(".products-selected")
-    function addItemToShoppingCart(productName, price, productImg){
+    function addItemToShoppingCart(productName, productStock, price, productImg){
         const ShoppingCart = document.createElement('div')
 
         let cartContent = ``
@@ -133,9 +135,11 @@ const showProducts = () => {
         cartContent += `
         <div class="product-seleccion">
             <img src="${productImg}" alt="" class="img-prod">
-            <h3>${productName}</h3>
-                <p>${price}</p>
-            
+            <div class="info-prod">
+                <h3>${productName}</h3>
+                <p class="stock-product-value">${productStock} <span class="product-price-value"> ${price}</span></p>
+                <p class="subtotal-product">Subtotal: ${price}</p>
+            </div>
         </div>
         `;
         ShoppingCart.innerHTML = cartContent
@@ -143,31 +147,12 @@ const showProducts = () => {
     } 
 }
 
-    /* Carrito */
-    /* showProducts() */
-
-    /* const addToCartButtons = document.querySelectorAll('.bx-plus');
-    addToCartButtons.forEach((addToCartButton) => {
-        addToCartButton.addEventListener("click", addToCartClicked );
-    })
     
-    function addToCartClicked(e) {
-        const button = e.target;
-        console.log(button);
-    } */
 
 
 
 
-/* addToCartBtn.forEach((addButton) => {
-    addButton.addEventListener('click', addToCartClicked );
-}) */
 
-/* function addToCartClicked(e){
-    const button = e.target
-    const item = button.closest('.products')
-    console.log(item);
-} */ 
 
 
 
